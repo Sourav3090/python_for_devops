@@ -1,0 +1,10 @@
+veriables is a to z
+koi bhi veriables number se start nahi hoga (name1 is valid but 1name is unvalide)
+kiski ka name likhna hai to bich me underscore ka use karege
+veriable caps me likha h thatmeans its a constant value & fixed value
+veriables me underscore use kar sakte hai.
+single = ko assigne bolte hai variable me == ko equalto bolte hai hai (n=10 means n assigne 10 & n==10 means nequalto 10)
+veriable is a memory location 
+jo chej phle se define hai usko variables me use nahi kar sakte
+f= string formating
+agr floating value nahi chahiye to double devide ka use karege (//)  print me floating values chaiye to single (/) devide ka use karege
