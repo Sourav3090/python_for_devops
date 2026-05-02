@@ -1,2 +1,8 @@
 what is python
-variables and 
+variables and its rules
+arithmatic operations.
+input/output (I/O)
+type castingand type conversion.
+   str()
+   
+   
