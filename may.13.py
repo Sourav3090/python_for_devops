@@ -24,6 +24,7 @@
 
 
 for num in range (1 ,16):
+
     if num > 1:
         for i in range (2, num): 
             if num % i == 0:
@@ -31,5 +32,6 @@ for num in range (1 ,16):
         else:
             print(num)
 
+####
 
 
