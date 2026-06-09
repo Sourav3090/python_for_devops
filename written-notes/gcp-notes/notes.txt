@@ -1,0 +1,204 @@
+Q. What is VPC(Virtual Private Cloud) ?
+    -A VPC is a Virtual Private Network inside cloud where your cloud 
+    resources communicate securely.
+    -like a private office network inside a company.
+Q. What is Subnet ?
+    -A subnet is a smaller division of a VPC Network.
+    -Large Network are division into smaller part of:
+    1. security
+    2.better management
+    3.performance
+     Types of subnet:
+     1. Public 
+        *What is public subnet?: 
+        -A subnet where server can directly communicate with internet.
+     2. Private:
+        *What is private Network ?:
+        -A subnet where resources are not directly accessible from the 
+        internet.
+        *Why we use private subnet ?:
+        -beacuse sensitive resources should remain hidden.
+        -Ex. datatbases, backend API, Interneal Applications
+Q. What is Firewall Rules?
+    -Firewalls Rules Control:- 
+        -Who can access Your VM, Which ports are allowed, which traffic 
+        should be block
+Q. What is Routes?
+    -Route decide where traffic should go.
+Q. What is Load Balancer?
+    -Load Balancer distribute traffic across multiple servers.
+    -Benefits of Load Balancer:
+        1. High availability-(if one server fails automatically other work)
+        2. Better performmance-(traffic divided)
+        3. Scalability-(Easy to add servers)
+Q. Difference between Public and Private Subnets
+    Public:
+        -Internet Accessible
+        -Used for web apps
+    Private:
+        -No direct internet access
+        -Used for databases
+
+GCP Bucket Creation and host website:
+    -Search --> Cloud storage -->Create Bucket --> Remove Prevent Public access--> 
+    Grant Access --> write -allUsers --> Storage Object Viewer --> Create
+ 
+Download https://templatemo.com/
+    -go to bucket --> click upload option --> upload downloaded tampelate folder --> 
+    index.html --> copy URL and Paste in new trab of web browser
+
+ We create subnet in networks in VPC.
+
+
+******Create VM and Host Websites using Docker in GCP*******
+    1.Open GCP on Google --> Search VM instance and CLick on it
+    2.Create VM:
+        
+=================================29th May 2026==========================================
+To install the Google Cloud CLI (GCP CLI) on Ubuntu, follow these simple steps.
+
+The official tool is called the Google Cloud CLI (`gcloud`).
+
+## Step 1: Update Packages
+
+```bash
+sudo apt update
+```
+
+---
+
+## Step 2: Install Required Packages
+
+```bash
+sudo apt install apt-transport-https ca-certificates gnupg curl -y
+```
+
+---
+
+## Step 3: Add Google Cloud Repository Key
+
+```bash
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+```
+
+---
+
+## Step 4: Add the Google Cloud CLI Repository
+
+```bash
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
+```
+
+---
+
+## Step 5: Update Again
+
+```bash
+sudo apt update
+```
+
+---
+
+## Step 6: Install Google Cloud CLI
+
+```bash
+sudo apt install google-cloud-cli -y
+```
+
+---
+
+## Step 7: Verify Installation
+
+```bash
+gcloud version
+```
+
+If installed correctly, you will see version details.
+
+---
+
+## Step 8: Login to Your Google Account
+
+```bash
+gcloud init
+```
+
+This command:
+
+* Opens browser login
+* Lets you choose your Google account
+* Selects your GCP project
+
+---
+
+## Useful Commands
+
+### Check current account
+
+```bash
+gcloud auth list
+```
+
+### List projects
+
+```bash
+gcloud projects list
+```
+
+### Set a project
+
+```bash
+gcloud config set project PROJECT_ID
+```
+
+---
+
+
+==========================Terraform Installation for GCP====================
+
+ sudo apt update
+ sudo apt install -y gnupg software-properties-common curl
+
+  curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+  sudo apt update
+
+  sudo apt install -y terraform
+
+   terraform version
+
+login default:
+gcloud auth application-default login
+
+create main.tf file and paste our vm creation code:
+
+terraform init
+terraform plan
+terraform apply
+terraform destroy #to delete vm 
+=========================================
+Terraform Workflow to Remember
+Write Code
+    ↓
+terraform init
+    ↓
+terraform plan
+    ↓
+terraform apply
+    ↓
+VM Created
+    ↓
+terraform destroy
+
+
+================================================
+vm statefile deleted by mistake how will recover it :
+
+    -terraform init
+    - gcloud compute instances list
+    -terraform import google_compute_instance.vm projects/project-93292acb-1b2a-49eb-8cd/zones/asia-south1-a/instances/terraform-vm4
+    - terraform state list
+    -terraform plan
+    -terraform apply

@@ -1,0 +1,149 @@
+A=Apps
+S=Services
+K=Kernel
+
+-Linux is a Open-Source Operating System Kernel created by Linus Torvalds.
+-It is the Foundation of many Operating system('distros', 'distributions')
+-like: Ubuntu, Centos, Red Hat, Debian and Alpine.
+
+Linux is free highly Customizable and designed for stability and performance and Secured.
+*Linux Features used in DevOps:
+1. Server & Infrastructure management
+2. Shell Scripting & Automation.
+3. Cintainerization (Docker and Kubernetes)
+4. CI/CD Pipelines
+5. Networking & Security.
+6. Monitoring & Logging
+
+Linux Commands:
+ls  ---normal listing of files and folder
+ls -a ----list hoidden file also 
+ls -lh ----list files with kb 
+touch  ----- file Creation 
+cat ----show content of file
+whoami ----user name 
+pwd ---present working directory
+mkdir -p name ---- 
+mkdir -p filder1/folder2/folde3 -----create folder into folder
+cd --
+vim ----open your file in vim editor -for insert content press: i
+     ----for save and close: ESC --> shift + :wq ----> enter
+
+======================================
+*********11th May 2026**********
+======================================
+
+Permission in Linux:
+     -In Linux, permission control who can read, write and execute files
+     and directories. These are the core part to system security.
+
+     1. Type of permissions:
+          each file/directory has 3 types of permissions:
+          read (r) -> view contents
+          write (w) -> modify contents
+          execute (x) -> run files/access directory
+     
+     2.Permissions Categories:
+          Permission are assigned into three groups:
+               -User (u) -> file owner
+               -group (g) -> group members
+               -others (o) -> Everyone else
+     
+     3. Permissions Categories:
+          -rwxr-xr--
+          owner : read, write, execute
+          group: read, execute
+          others: read
+     
+     4. Numeric Permissions (Octal):
+          -Each Permission has a number:
+          -r = 4
+          -w = 2
+          -x = 1
+
+          Add them:
+          rwx = 7
+          rw- = 6
+          r-x = 5
+          r-- = 4
+     5. Changing Permissions:
+          chmod u+x files.sh -> add execute for user
+          chmod g+w file.sh -> add write for group
+          chmod o=r file.sh -> set others for ready only
+
+     5. Changing Ownership:
+          *How Many User Available in system: 
+               -cat /etc/passwd
+          *for count users: 
+               -cat /etc/passwd | wc -l
+          *How many groups in system:
+          *for groups count: 
+               -cat /etc/group | wc -l     ===> (root:x:0)= user:password:id
+          *How to check groups of username:
+               -groups "username"
+
+          *How to Create User:
+               -sudo useradd new-username
+          *How to set Password
+               -sudo passwd new-username
+          *How to Create Group:
+               -sudo groupadd "groupname"
+          *How to Add in Group:
+               -sudo usermod -aG "groupname" "Username"
+          *How to Verify Username Add or Not in Groups:
+               -groups "username"
+          *How to Delete Users: 
+               -sudo userdel "username"
+          *How to Delete Groups:
+               -sudo groupdel "groupname"
+          *How to Remove User from Group:
+               -sudo gpasswd -d "groupname" "username"
+
+==================12th May===================
+
+     -Linux Create same name group automatically for 
+      new user beacause it make permission management cleaner, 
+      safe and easier in mutli-server system.
+     -Linux Follow model name UPG (User Private Group)
+      Primary Group.
+     
+     *How to create admin new user with password:
+      -sudo adduser "Username"
+     *How to check Entry of Username:  
+      -getent passwd "Username"
+     *How to change Ownership:
+      -sudo chown "username" "filename"
+     *How to change group:
+      -sudo chgrp "groupname" "flename" 
+     *How to add user in group:
+      -sudo usermod -aG "groupname" "username"
+     *How to Refresh to added group(after add username in group we need to refresh it)
+      -newgrp "groupname"
+     *How to switch or change Username:
+      -sudo su - "username"
+     
+Searching Commands for File and Folder:
+     *How to file top 5 lines:
+     -head -5 "filename"
+     *How to find Bottom 5 lines:
+     -tail -5 "filename"
+     *How to check bottom live changes:
+     -tail -f "filename"
+
+     -/dev/null : is a spacial virtual device in Linux called null device.
+
+     -stdin : 0
+         -ls > /dev/null : hide normal output,   but show output in error
+
+     -stdout : 1
+         - ls 1> /dev/null: hide normal output but, show output in error.
+
+     -stderr : 2
+          -lss 2> /dev/null: hide error and show output in right command.
+          -ls 2> /dev/null : show output in right command 
+
+          -lss > /dev/null 2>&1 : hide everything.
+
+          -echo $? : it checks command health: 0 means everything is OK.
+           -grep "text"
+
